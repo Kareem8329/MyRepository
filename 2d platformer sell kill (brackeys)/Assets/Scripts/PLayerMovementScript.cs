@@ -32,7 +32,7 @@ public class PLayerMovementScript : MonoBehaviour
 
     bool CanMove;
     
-    bool hasDied = false;
+    public bool hasDied = false;
 
 
 

@@ -19,7 +19,9 @@ public class enemyScript : MonoBehaviour
     bool isDead = false;
     bool hasDied = false;
 
+    
 
+    
 
     public MoneyScript money;
 
@@ -80,30 +82,50 @@ public class enemyScript : MonoBehaviour
 
     }
 
+    public bool playerDead;
+
     // The Update method is called once per frame
     void Update()
     {
+        playerDead = target.GetComponent<PLayerMovementScript>().hasDied;
 
-        if (target.transform.position.x > transform.position.x)
+        if (playerDead)
         {
-            spriteRenderer.flipX = true;
-        } else
+            animator.SetBool("Idle", true);
+        }
+
+        if (!playerDead)
         {
-            spriteRenderer.flipX = false;
+
+
+            if (target.transform.position.x > transform.position.x)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
+
+
+            if (CanMove)
+            {
+                Vector2 targetPosition = target.transform.position;
+                transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+            }
+
+
+            if (Health <= 0)
+            {
+                Die();
+            }
+
+
+            
+
         }
 
 
-        if (CanMove)
-        {
-        Vector2 targetPosition = target.transform.position;
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
-        }
-
-       
-        if (Health <= 0)
-        {
-            Die();
-        }
     }
 }
