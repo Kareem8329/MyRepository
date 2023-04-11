@@ -22,8 +22,6 @@ public class PLayerMovementScript : MonoBehaviour
 
 
 
-
-
     public string enemyTag = "Enemy";
     public int damage = 10;
     public float damageInterval = 3f;
@@ -34,13 +32,12 @@ public class PLayerMovementScript : MonoBehaviour
     
     public bool hasDied = false;
 
+    public bool groundMove;
 
+    public bool isMovingOnGround;
 
-
-
-
-
-
+    public float playerXPosition;
+    public float playerYPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -61,82 +58,9 @@ public class PLayerMovementScript : MonoBehaviour
 
         CanMove = true;
 
-    }
+        groundMove = false;
 
-
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "ground")
-        {
-            isJumping = false;
-
-            Debug.Log("Jumping");
-        }
-    }
-
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "ground")
-        {
-            isJumping = true;
-
-            Debug.Log("not jumping");
-        }
-    }
-
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            // Check if enough time has passed since the last damage
-            if (Time.time - lastDamageTime > damageInterval)
-            {
-                // Get the number of enemies colliding with the player
-                int enemyCount = collision.contactCount;
-
-                // Multiply the damage by the number of enemies colliding with the player
-                int totalDamage = damage * enemyCount;
-
-                playerHealth -= totalDamage;
-                lastDamageTime = Time.time;
-
-                
-
-                animator.SetBool("GetHit", true);
-            }
-        }else
-        {
-            animator.SetBool("GetHit", false);
-        }
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("TakeHit"))
-        {
-            spriteRenderer.color = Color.red;
-        } else
-        {
-            spriteRenderer.color = Color.white;
-        }
-    }
-
-
-    void Die()
-    {
-        if (!hasDied)
-        {
-            hasDied = true;
-            
-            animator.SetBool("Dead", true);
-            CanMove = false;
-
-            
-
-            Debug.Log("player Died!");
-
-            
-        }
-
-
+        isMovingOnGround = false;
     }
 
 
@@ -144,10 +68,24 @@ public class PLayerMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        playerXPosition = transform.position.x;
+        playerYPosition = transform.position.y;
+
         // Get the player's input for horizontal and vertical movement
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveVertical = Input.GetAxisRaw("Vertical");
 
+
+        if (isRunning && !isJumping)
+        {
+
+            groundMove = true;
+
+        } else
+        {
+            groundMove = false;
+        }
 
 
         if (playerHealth <= 0)
@@ -155,7 +93,7 @@ public class PLayerMovementScript : MonoBehaviour
             Die();
         }
 
-
+        
 
 
         if (CanMove)
@@ -192,6 +130,8 @@ public class PLayerMovementScript : MonoBehaviour
                 rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
                 animator.SetFloat("Speed", Mathf.Abs(moveHorizontal));
                 isRunning = true;
+
+                
             }
             else
             {
@@ -247,9 +187,85 @@ public class PLayerMovementScript : MonoBehaviour
 
 
         }
+        
+
+    }
 
 
 
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ground")
+        {
+            isJumping = false;
+
+            Debug.Log("Jumping");
+        }
+    }
+
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ground")
+        {
+            isJumping = true;
+
+            Debug.Log("not jumping");
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Check if enough time has passed since the last damage
+            if (Time.time - lastDamageTime > damageInterval)
+            {
+                // Get the number of enemies colliding with the player
+                int enemyCount = collision.contactCount;
+
+                // Multiply the damage by the number of enemies colliding with the player
+                int totalDamage = damage * enemyCount;
+
+                playerHealth -= totalDamage;
+                lastDamageTime = Time.time;
+
+
+
+                animator.SetBool("GetHit", true);
+            }
+        }
+        else
+        {
+            animator.SetBool("GetHit", false);
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("TakeHit"))
+        {
+            spriteRenderer.color = Color.red;
+        }
+        else
+        {
+            spriteRenderer.color = Color.white;
+        }
+    }
+
+
+    void Die()
+    {
+        if (!hasDied)
+        {
+            hasDied = true;
+
+            animator.SetBool("Dead", true);
+            CanMove = false;
+
+
+
+            Debug.Log("player Died!");
+
+
+        }
 
 
     }
@@ -257,6 +273,5 @@ public class PLayerMovementScript : MonoBehaviour
 
 
 
-    
 
 }

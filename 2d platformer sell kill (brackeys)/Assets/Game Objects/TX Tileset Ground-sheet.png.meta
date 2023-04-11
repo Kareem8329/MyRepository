@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,9 +69,9 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 2
+    compressionQuality: 100
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -3424,7 +3424,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       TX Tileset Ground-sheet_124: -1519598315
-      TX Tileset Ground-sheet_143: -791671653
+      TX Tileset Ground-sheet_44: -1895024812
       TX Tileset Ground-sheet_140: -1104705273
       TX Tileset Ground-sheet_122: -1893701943
       TX Tileset Ground-sheet_127: -1470583152
@@ -3487,19 +3487,19 @@ TextureImporter:
       TX Tileset Ground-sheet_130: -301890859
       TX Tileset Ground-sheet_48: -805606093
       TX Tileset Ground-sheet_133: -1401430232
-      TX Tileset Ground-sheet_119: -2031013109
       TX Tileset Ground-sheet_126: 2023563773
-      TX Tileset Ground-sheet_73: -274103623
-      TX Tileset Ground-sheet_78: 2060686153
-      TX Tileset Ground-sheet_97: 1846532461
+      TX Tileset Ground-sheet_119: -2031013109
+      TX Tileset Ground-sheet_135: -2037781187
       TX Tileset Ground-sheet_74: -276608634
-      TX Tileset Ground-sheet_37: 1596248218
-      TX Tileset Ground-sheet_56: 1501404457
-      TX Tileset Ground-sheet_10: -972926703
-      TX Tileset Ground-sheet_45: 1617830940
-      TX Tileset Ground-sheet_28: -888470642
+      TX Tileset Ground-sheet_78: 2060686153
       TX Tileset Ground-sheet_93: -1948347181
+      TX Tileset Ground-sheet_45: 1617830940
+      TX Tileset Ground-sheet_10: -972926703
+      TX Tileset Ground-sheet_37: 1596248218
+      TX Tileset Ground-sheet_28: -888470642
       TX Tileset Ground-sheet_100: 1442969939
+      TX Tileset Ground-sheet_73: -274103623
+      TX Tileset Ground-sheet_56: 1501404457
       TX Tileset Ground-sheet_134: -1286692092
       TX Tileset Ground-sheet_55: 1451497405
       TX Tileset Ground-sheet_36: 1674799888
@@ -3507,10 +3507,10 @@ TextureImporter:
       TX Tileset Ground-sheet_144: -584510565
       TX Tileset Ground-sheet_26: -480236770
       TX Tileset Ground-sheet_53: 13207386
-      TX Tileset Ground-sheet_81: 1649951548
+      TX Tileset Ground-sheet_97: 1846532461
       TX Tileset Ground-sheet_104: -319754825
+      TX Tileset Ground-sheet_81: 1649951548
       TX Tileset Ground-sheet_85: 1785574876
-      TX Tileset Ground-sheet_135: -2037781187
       TX Tileset Ground-sheet_128: -1112134669
       TX Tileset Ground-sheet_7: 567708625
       TX Tileset Ground-sheet_87: -210839028
@@ -3566,20 +3566,20 @@ TextureImporter:
       TX Tileset Ground-sheet_20: 1377444432
       TX Tileset Ground-sheet_58: 665638712
       TX Tileset Ground-sheet_139: 1781511176
-      TX Tileset Ground-sheet_83: -118238486
-      TX Tileset Ground-sheet_118: 2004707784
-      TX Tileset Ground-sheet_129: -249263946
-      TX Tileset Ground-sheet_52: -1117316958
+      TX Tileset Ground-sheet_143: -791671653
       TX Tileset Ground-sheet_152: 235404157
+      TX Tileset Ground-sheet_129: -249263946
+      TX Tileset Ground-sheet_83: -118238486
+      TX Tileset Ground-sheet_52: -1117316958
       TX Tileset Ground-sheet_145: -2138804324
+      TX Tileset Ground-sheet_118: 2004707784
       TX Tileset Ground-sheet_43: -331428608
       TX Tileset Ground-sheet_54: -2069517576
-      TX Tileset Ground-sheet_18: 455466976
-      TX Tileset Ground-sheet_63: 2013231289
       TX Tileset Ground-sheet_65: -719896109
+      TX Tileset Ground-sheet_63: 2013231289
+      TX Tileset Ground-sheet_18: 455466976
       TX Tileset Ground-sheet_113: 2094242128
       TX Tileset Ground-sheet_22: -1351515629
-      TX Tileset Ground-sheet_44: -1895024812
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
