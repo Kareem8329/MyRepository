@@ -4,29 +4,44 @@ using UnityEngine;
 
 public class ParticleGround : MonoBehaviour
 {
+    
+    public ParticleSystem ps;
+
+    public ParticleSystemRenderer psRenderer;
+
     public GameObject player;
 
-    public bool groundMove;
+    public float psX;
+    public float psY;
 
-    // Start is called before the first frame update
+    public float playerX;
+    public float playerY;
+
     void Start()
     {
+        ps.Play();
 
-        
+        psRenderer = GetComponent<ParticleSystemRenderer>();
 
-        gameObject.SetActive(false);
+        psRenderer.enabled = false;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //if bool groundMove activate
 
-        groundMove = player.GetComponent<PLayerMovementScript>().groundMove;
 
-        if (groundMove)
-        {
-            gameObject.SetActive(true);
-        }
+        playerX = player.GetComponent<PLayerMovementScript>().playerXPosition;
+        playerY = player.GetComponent<PLayerMovementScript>().playerYPosition;
+
+
+        psX = playerX;
+        psY = playerY - 0.9f;
+
+        transform.position = new Vector3(psX, psY, transform.position.z);
+
+
     }
+
 }
+

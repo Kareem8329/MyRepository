@@ -39,9 +39,18 @@ public class PLayerMovementScript : MonoBehaviour
     public float playerXPosition;
     public float playerYPosition;
 
+    public ParticleSystem ps;
+
+    public ParticleSystemRenderer psRenderer;
+
+
     // Start is called before the first frame update
     void Start()
     {
+
+        
+
+
         // Get the Rigidbody2D component of the player object
         rb2D = gameObject.GetComponent<Rigidbody2D>();
 
@@ -60,9 +69,10 @@ public class PLayerMovementScript : MonoBehaviour
 
         groundMove = false;
 
-        isMovingOnGround = false;
+        psRenderer = ps.GetComponent<ParticleSystemRenderer>();
     }
 
+    
 
 
     // Update is called once per frame
@@ -93,7 +103,17 @@ public class PLayerMovementScript : MonoBehaviour
             Die();
         }
 
-        
+        if (groundMove)
+        {
+            Debug.Log("PSSSSS");
+            psRenderer.enabled = true;
+            ps.Play();
+        }
+        else
+        {
+            ps.Play();
+            psRenderer.enabled = false;
+        }
 
 
         if (CanMove)
@@ -201,6 +221,13 @@ public class PLayerMovementScript : MonoBehaviour
             isJumping = false;
 
             Debug.Log("Jumping");
+            if (isRunning)
+            {
+                groundMove = true;
+            } else
+            {
+                groundMove = false;
+            }
         }
     }
 
@@ -212,6 +239,8 @@ public class PLayerMovementScript : MonoBehaviour
             isJumping = true;
 
             Debug.Log("not jumping");
+
+            groundMove = false;
         }
     }
 
@@ -249,29 +278,14 @@ public class PLayerMovementScript : MonoBehaviour
             spriteRenderer.color = Color.white;
         }
     }
-
-
     void Die()
     {
         if (!hasDied)
         {
             hasDied = true;
-
             animator.SetBool("Dead", true);
             CanMove = false;
-
-
-
             Debug.Log("player Died!");
-
-
         }
-
-
     }
-
-
-
-
-
 }

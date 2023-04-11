@@ -1167,8 +1167,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3c534361cdb8b7f48874448766d5ba60, type: 3}
-  m_Color: {r: 1, g: 0.9746027, b: 0.8349056, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1e145a0ed1a5ba343820e979f801e20e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1367,6 +1367,8 @@ MonoBehaviour:
   isMovingOnGround: 0
   playerXPosition: 0
   playerYPosition: 0
+  ps: {fileID: 1848227488}
+  psRenderer: {fileID: 0}
 --- !u!61 &928934776
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19939,7 +19941,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848227486}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 100000
   simulationSpeed: 2
   stopAction: 0
   cullingMode: 0
@@ -20183,7 +20185,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -24646,7 +24648,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848227486}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.068, y: -2.55, z: 0.08}
+  m_LocalPosition: {x: 0, y: -2.7, z: 0.08}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24665,8 +24667,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca869a7d606bc34498eeb8d2399c667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 1848227488}
+  psRenderer: {fileID: 0}
   player: {fileID: 928934767}
-  groundMove: 0
+  psX: 0
+  psY: 0
+  playerX: 0
+  playerY: 0
 --- !u!1 &1858352233
 GameObject:
   m_ObjectHideFlags: 3
@@ -25108,6 +25115,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1072333128}
+    - target: {fileID: 6825713996569858155, guid: d9d15e71137cd074c94fda5c3861c16a, type: 3}
+      propertyPath: enemySpawner
+      value: 
+      objectReference: {fileID: 448502667}
     - target: {fileID: 6825713996569858155, guid: d9d15e71137cd074c94fda5c3861c16a, type: 3}
       propertyPath: spriteRenderer
       value: 
