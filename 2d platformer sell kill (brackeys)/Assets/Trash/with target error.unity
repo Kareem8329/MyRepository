@@ -1370,8 +1370,6 @@ MonoBehaviour:
   isMovingOnGround: 0
   playerXPosition: 0
   playerYPosition: 0
-  ps: {fileID: 1848227488}
-  psRenderer: {fileID: 0}
 --- !u!61 &928934776
 BoxCollider2D:
   m_ObjectHideFlags: 0
