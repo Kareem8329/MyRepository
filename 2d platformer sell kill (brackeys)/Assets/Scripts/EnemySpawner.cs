@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
 
-        playerDead = target.GetComponent<PlayerMovementScript>().hasDied;
+        playerDead = target.GetComponent<PLayerMovementScript>().hasDied;
 
         spawnInterval = 10f;
 
@@ -46,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
 
-        playerDead = target.GetComponent<PlayerMovementScript>().hasDied;
+        playerDead = target.GetComponent<PLayerMovementScript>().hasDied;
 
         if (playerDead)
         {
