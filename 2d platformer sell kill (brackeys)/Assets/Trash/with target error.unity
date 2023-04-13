@@ -1165,11 +1165,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3c534361cdb8b7f48874448766d5ba60, type: 3}
-  m_Color: {r: 1, g: 0.9746027, b: 0.8349056, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1e145a0ed1a5ba343820e979f801e20e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1370,6 +1370,8 @@ MonoBehaviour:
   isMovingOnGround: 0
   playerXPosition: 0
   playerYPosition: 0
+  ps: {fileID: 1848227488}
+  psRenderer: {fileID: 0}
 --- !u!61 &928934776
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19940,6 +19942,7 @@ GameObject:
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
+  lengthInSec: 100000
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -20182,6 +20185,7 @@ ParticleSystem:
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
+        scalar: 1.5
         - serializedVersion: 3
           time: 1
           value: 1
@@ -24642,6 +24646,7 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
+            m_LocalPosition: {x: 0, y: -2.7, z: 0.08}
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -24662,7 +24667,13 @@ ParticleSystem:
         m_RotationOrder: 4
     vectorLabel1_2: Z
     vector1_3:
+    ps: {fileID: 1848227488}
+  psRenderer: {fileID: 0}
       serializedVersion: 2
+      psX: 0
+  psY: 0
+  playerX: 0
+  playerY: 0
       minMaxState: 0
       scalar: 0
       minScalar: 0
@@ -25104,6 +25115,10 @@ Transform:
   - {fileID: 1920038583}
   - {fileID: 280892248}
   m_Father: {fileID: 0}
+    - target: {fileID: 6825713996569858155, guid: d9d15e71137cd074c94fda5c3861c16a, type: 3}
+      propertyPath: enemySpawner
+      value: 
+      objectReference: {fileID: 448502667}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4328399783296043485
