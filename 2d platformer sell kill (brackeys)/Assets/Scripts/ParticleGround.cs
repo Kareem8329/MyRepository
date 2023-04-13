@@ -31,8 +31,8 @@ public class ParticleGround : MonoBehaviour
     {
 
 
-        playerX = player.GetComponent<PLayerMovementScript>().playerXPosition;
-        playerY = player.GetComponent<PLayerMovementScript>().playerYPosition;
+        playerX = player.GetComponent<PlayerMovementScript>().playerXPosition;
+        playerY = player.GetComponent<PlayerMovementScript>().playerYPosition;
 
 
         psX = playerX;

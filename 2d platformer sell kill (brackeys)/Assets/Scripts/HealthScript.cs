@@ -9,14 +9,14 @@ public class HealthScript : MonoBehaviour
     
     public int playerHealth;
 
-    private TextMeshProUGUI textMeshPro;
+    public TextMeshProUGUI textMeshPro;
 
 
     // Start is called before the first frame update
     void Start()
     {
 
-        playerHealth = player.GetComponent<PLayerMovementScript>().playerHealth;
+        playerHealth = player.GetComponent<PlayerMovementScript>().playerHealth;
 
         textMeshPro = GetComponent<TextMeshProUGUI>();
 
@@ -25,7 +25,7 @@ public class HealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerHealth = player.GetComponent<PLayerMovementScript>().playerHealth;
+        playerHealth = player.GetComponent<PlayerMovementScript>().playerHealth;
         textMeshPro.text = "Health: " + playerHealth;
     }
 }

@@ -13,7 +13,7 @@ public class AttackRangeTwoScript : MonoBehaviour
     public Animator eAnimator;
 
     // PlayerMovementScript component for player GameObject
-    public PLayerMovementScript pScript;
+    public PlayerMovementScript pScript;
 
     // enemyScript component for enemy GameObject
     public enemyScript eScript;
@@ -33,7 +33,7 @@ public class AttackRangeTwoScript : MonoBehaviour
         }
 
         // Get the PlayerMovementScript component from the player GameObject
-        pScript = player.GetComponent<PLayerMovementScript>();
+        pScript = player.GetComponent<PlayerMovementScript>();
         if (pScript == null)
         {
             Debug.LogError("AttackRangeTwoScript: PlayerMovementScript component not found on player GameObject!");

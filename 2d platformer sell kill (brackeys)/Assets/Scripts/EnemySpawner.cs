@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
 
-        playerDead = target.GetComponent<PLayerMovementScript>().hasDied;
+        playerDead = target.GetComponent<PlayerMovementScript>().hasDied;
 
         spawnInterval = 10f;
 
@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
         enemyPrefab.GetComponent<enemyScript>().target = GameObject.FindGameObjectWithTag("Player");
 
 
-        target = enemyPrefab.GetComponent<enemyScript>().target = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.FindGameObjectWithTag("Player");
 
         spawnCount = 0;
 
@@ -46,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
 
-        playerDead = target.GetComponent<PLayerMovementScript>().hasDied;
+        playerDead = target.GetComponent<PlayerMovementScript>().hasDied;
 
         if (playerDead)
         {
@@ -84,13 +84,15 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
+    public GameObject newEnemy;
+
     void SpawnEnemy()
     {
         Vector2 randomPosition = new Vector2(
             Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x),
             Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y)
         );
-        GameObject newEnemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
+         newEnemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
         newEnemy.GetComponent<enemyScript>().target = GameObject.FindGameObjectWithTag("Player");
         newEnemy.tag = "Enemy";
 

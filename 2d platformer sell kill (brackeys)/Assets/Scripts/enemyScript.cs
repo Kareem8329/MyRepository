@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class enemyScript : MonoBehaviour
@@ -19,13 +20,13 @@ public class enemyScript : MonoBehaviour
     bool isDead = false;
     bool hasDied = false;
 
+    [CanBeNull]
     public GameObject newEnemy;
 
-    public GameObject enemySpawner;
 
     public MoneyScript money;
 
-
+    
     // The Start method is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class enemyScript : MonoBehaviour
         animator = GetComponent<Animator>();
         CanMove = true;
         
+
 
         newEnemy = GameObject.FindGameObjectWithTag("Enemy");
 
@@ -55,6 +57,8 @@ public class enemyScript : MonoBehaviour
         Health = Health - attackDamage;
         // TODO: Play the hurt animation
         Debug.Log("enemy is being damaged");
+
+            
     }
 
     // This method is called when the enemy dies
@@ -69,7 +73,10 @@ public class enemyScript : MonoBehaviour
 
             Physics2D.IgnoreCollision(box, target.GetComponent<Collider2D>());
 
-            Physics2D.IgnoreCollision(box, newEnemy.GetComponent<Collider2D>());
+            if (newEnemy != null)
+            {
+                Physics2D.IgnoreCollision(box, newEnemy.GetComponent<Collider2D>());
+            }
 
             money.GetComponent<MoneyScript>().enemyKillcount++;
 
@@ -84,12 +91,13 @@ public class enemyScript : MonoBehaviour
 
     }
 
+
     public bool playerDead;
 
     // The Update method is called once per frame
     void Update()
     {
-        playerDead = target.GetComponent<PLayerMovementScript>().hasDied;
+        playerDead = target.GetComponent<PlayerMovementScript>().hasDied;
 
         if (playerDead)
         {
