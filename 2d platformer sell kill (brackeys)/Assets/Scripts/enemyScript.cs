@@ -20,10 +20,8 @@ public class enemyScript : MonoBehaviour
     bool isDead = false;
     bool hasDied = false;
 
-
     [CanBeNull]
     public GameObject newEnemy;
-
 
 
     public MoneyScript money;
@@ -36,7 +34,7 @@ public class enemyScript : MonoBehaviour
         box = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         CanMove = true;
-        // There is no code in this method, so it does nothing
+        
 
 
         newEnemy = GameObject.FindGameObjectWithTag("Enemy");
@@ -75,12 +73,10 @@ public class enemyScript : MonoBehaviour
 
             Physics2D.IgnoreCollision(box, target.GetComponent<Collider2D>());
 
-
             if (newEnemy != null)
             {
                 Physics2D.IgnoreCollision(box, newEnemy.GetComponent<Collider2D>());
             }
-
 
             money.GetComponent<MoneyScript>().enemyKillcount++;
 
@@ -101,7 +97,7 @@ public class enemyScript : MonoBehaviour
     // The Update method is called once per frame
     void Update()
     {
-        playerDead = target.GetComponent<PLayerMovementScript>().hasDied;
+        playerDead = target.GetComponent<PlayerMovementScript>().hasDied;
 
         if (playerDead)
         {
