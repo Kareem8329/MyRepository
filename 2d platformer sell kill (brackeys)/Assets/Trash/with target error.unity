@@ -1168,8 +1168,8 @@ SpriteRenderer:
 m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1e145a0ed1a5ba343820e979f801e20e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 3c534361cdb8b7f48874448766d5ba60, type: 3}
+  m_Color: {r: 1, g: 0.9746027, b: 0.8349056, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1370,8 +1370,6 @@ MonoBehaviour:
   isMovingOnGround: 0
   playerXPosition: 0
   playerYPosition: 0
-  ps: {fileID: 1848227488}
-  psRenderer: {fileID: 0}
 --- !u!61 &928934776
 BoxCollider2D:
   m_ObjectHideFlags: 0
