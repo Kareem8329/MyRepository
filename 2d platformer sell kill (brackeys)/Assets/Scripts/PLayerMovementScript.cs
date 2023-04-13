@@ -31,6 +31,7 @@ public class PlayerMovementScript : MonoBehaviour
     public float damageInterval = 1f;
     public float playerYPosition;
 
+<<<<<<< HEAD
     //booleans
     public bool isRunning;
     public bool CanMove;
@@ -48,6 +49,13 @@ public class PlayerMovementScript : MonoBehaviour
         PlayerRb2D = gameObject.GetComponent<Rigidbody2D>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         playerParticleSystemRenderer = playerParticleSystem.GetComponent<ParticleSystemRenderer>();
+=======
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Get the Rigidbody2D component of the player object
+        rb2D = gameObject.GetComponent<Rigidbody2D>();
+>>>>>>> parent of 6d13bab (BG, Particle effect)
 
         playerMovementSpeed = 1.8f;
         playerJumpForce = 30f;
@@ -58,8 +66,17 @@ public class PlayerMovementScript : MonoBehaviour
         CanMove = true;
         groundMove = false;
 
+<<<<<<< HEAD
     }
 
+=======
+        isMovingOnGround = false;
+    }
+
+
+
+    // Update is called once per frame
+>>>>>>> parent of 6d13bab (BG, Particle effect)
     void Update()
     {
         playerXPosition = transform.position.x;
@@ -100,6 +117,32 @@ public class PlayerMovementScript : MonoBehaviour
         {
             Die();
         }
+<<<<<<< HEAD
+=======
+
+        
+
+
+        if (CanMove)
+        {
+
+
+            // If left mouse button is pressed, set RightClick animation parameter to true
+            if (Input.GetMouseButton(0))
+            {
+                animator.SetBool("RightClick", true);
+            }
+            else
+            {
+                animator.SetBool("RightClick", false);
+            }
+
+
+        }
+
+
+
+>>>>>>> parent of 6d13bab (BG, Particle effect)
     }
 
     // FixedUpdate is called at a fixed interval
@@ -161,6 +204,7 @@ public class PlayerMovementScript : MonoBehaviour
         {
             isJumping = false;
 
+<<<<<<< HEAD
             if (isRunning)
             {
                 groundMove = true;
@@ -168,6 +212,9 @@ public class PlayerMovementScript : MonoBehaviour
             }
             else { groundMove = false; }
 
+=======
+            Debug.Log("Jumping");
+>>>>>>> parent of 6d13bab (BG, Particle effect)
         }
     }
 
@@ -176,7 +223,12 @@ public class PlayerMovementScript : MonoBehaviour
         if (collision.gameObject.tag == "ground")
         {
             isJumping = true;
+<<<<<<< HEAD
             groundMove = false;
+=======
+
+            Debug.Log("not jumping");
+>>>>>>> parent of 6d13bab (BG, Particle effect)
         }
     }
 
@@ -208,15 +260,41 @@ public class PlayerMovementScript : MonoBehaviour
         else { playerSpriteRenderer.color = Color.white; }
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 6d13bab (BG, Particle effect)
     void Die()
     {
         if (!hasDied)
         {
             hasDied = true;
+<<<<<<< HEAD
             playerAnimator.SetBool("Dead", true);
             CanMove = false;
 
+=======
+
+            animator.SetBool("Dead", true);
+            CanMove = false;
+
+
+
+>>>>>>> parent of 6d13bab (BG, Particle effect)
             Debug.Log("player Died!");
+
+
         }
+
+
     }
+<<<<<<< HEAD
 }
+=======
+
+
+
+
+
+}
+>>>>>>> parent of 6d13bab (BG, Particle effect)

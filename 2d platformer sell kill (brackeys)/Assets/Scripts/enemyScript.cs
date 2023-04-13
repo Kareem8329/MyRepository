@@ -20,9 +20,15 @@ public class enemyScript : MonoBehaviour
     bool isDead = false;
     bool hasDied = false;
 
+<<<<<<< HEAD
     [CanBeNull]
     public GameObject newEnemy;
 
+=======
+    
+
+    
+>>>>>>> parent of 6d13bab (BG, Particle effect)
 
     public MoneyScript money;
 
@@ -34,10 +40,14 @@ public class enemyScript : MonoBehaviour
         box = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         CanMove = true;
-        
+        // There is no code in this method, so it does nothing
 
+<<<<<<< HEAD
 
         newEnemy = GameObject.FindGameObjectWithTag("Enemy");
+=======
+        
+>>>>>>> parent of 6d13bab (BG, Particle effect)
 
         money = FindObjectOfType<MoneyScript>();
         if (money == null)
@@ -73,11 +83,14 @@ public class enemyScript : MonoBehaviour
 
             Physics2D.IgnoreCollision(box, target.GetComponent<Collider2D>());
 
+<<<<<<< HEAD
             if (newEnemy != null)
             {
                 Physics2D.IgnoreCollision(box, newEnemy.GetComponent<Collider2D>());
             }
 
+=======
+>>>>>>> parent of 6d13bab (BG, Particle effect)
             money.GetComponent<MoneyScript>().enemyKillcount++;
 
             Debug.Log("Enemy Died!");
